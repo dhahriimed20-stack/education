@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مدرستي | Mon École</title>
+<style>
+:root{--green:#176b55;--mint:#e8f5ef;--ink:#18332b;--muted:#5e7069;--paper:#f7faf8;--gold:#f2c45b}
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65}
+header{background:linear-gradient(125deg,#176b55,#258a6b);color:white;padding:22px max(18px,calc((100% - 1100px)/2))}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px}.logo{display:grid;place-items:center;background:white;color:var(--green);border-radius:15px;width:52px;height:52px;font-size:28px}.brand h1{margin:0;font-size:1.6rem}.brand p{margin:0;opacity:.9;font-size:.9rem}
+button,select,input{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 15px;font-weight:bold}.lang{background:#fff;color:var(--green)}.hero{max-width:1100px;margin:25px auto 0;padding:20px 0 12px}.hero h2{font-size:clamp(1.6rem,4vw,2.5rem);margin:0 0 8px}.hero p{margin:0 0 18px;max-width:680px}.hero .cta{background:var(--gold);color:#332a0f}
+main{max-width:1100px;margin:26px auto;padding:0 18px}.section-title{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap}.section-title h2{margin:0;font-size:1.35rem}.muted{color:var(--muted);font-size:.92rem}
+.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;background:white;padding:16px;border:1px solid #e0eae4;border-radius:16px;margin:14px 0 20px}.field label{display:block;font-size:.9rem;font-weight:bold;margin-bottom:5px}.field select,.field input{width:100%;padding:10px;border:1px solid #cbdad2;border-radius:9px;background:white;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{background:white;border:1px solid #e0eae4;border-radius:16px;padding:17px;box-shadow:0 3px 12px #153c2d08}.card .emoji{font-size:1.7rem}.card h3{margin:7px 0 3px}.card p{margin:0 0 12px;color:var(--muted);font-size:.93rem}.pill{display:inline-block;background:var(--mint);color:var(--green);padding:3px 9px;border-radius:99px;font-size:.8rem}.card button,.primary{background:var(--green);color:white}.card button{width:100%;margin-top:8px}.resource{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid #edf1ee;padding:12px 0}.resource:first-of-type{border-top:0}.resource strong{display:block}.resource small{color:var(--muted)}.resource a{background:var(--mint);color:var(--green);padding:7px 10px;border-radius:8px;text-decoration:none;white-space:nowrap}
+.notice{background:#fff8df;border:1px solid #f1df9d;padding:13px 15px;border-radius:12px;margin:18px 0}.quiz{background:#fff;border:1px solid #e0eae4;border-radius:16px;padding:18px;margin-top:15px}.quiz label{display:block;margin:8px 0}.result{font-weight:bold;margin-top:10px}.hidden{display:none}
+footer{margin-top:40px;background:#153f33;color:#e8f5ef;padding:24px 18px;text-align:center}footer p{margin:4px}
+@media(max-width:600px){.hero{padding-top:20px}.brand h1{font-size:1.3rem}.top{align-items:flex-start}}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <div class="brand"><div class="logo">🎓</div><div><h1 data-ar="مدرستي" data-fr="Mon École">مدرستي</h1><p data-ar="منصّة تعليمية للابتدائي" data-fr="Plateforme éducative pour le primaire">منصّة تعليمية للابتدائي</p></div></div>
+    <button class="lang" id="langBtn" type="button">Français</button>
+  </div>
+  <section class="hero">
+    <h2 data-ar="نتعلّم، نتدرّب، ننجح!" data-fr="Apprendre, s'entraîner, réussir !">نتعلّم، نتدرّب، ننجح!</h2>
+    <p data-ar="دروس وتمارين واختبارات وموارد قابلة للتحميل لتلامذة السنة الأولى إلى السادسة ابتدائي." data-fr="Cours, exercices, évaluations et ressources à télécharger pour les élèves du CP à la 6e année primaire.">دروس وتمارين واختبارات وموارد قابلة للتحميل لتلامذة السنة الأولى إلى السادسة ابتدائي.</p>
+    <button class="cta" onclick="document.getElementById('resources').scrollIntoView({behavior:'smooth'})" data-ar="اكتشف الموارد" data-fr="Découvrir les ressources">اكتشف الموارد</button>
+  </section>
+</header>
+<main>
+  <section>
+    <div class="section-title"><h2 data-ar="اختار المستوى والمادة" data-fr="Choisir le niveau et la matière">اختار المستوى والمادة</h2><span class="muted" data-ar="الموارد النموذجية قابلة للتغيير" data-fr="Les ressources de démonstration sont modifiables">الموارد النموذجية قابلة للتغيير</span></div>
+    <div class="filters">
+      <div class="field"><label for="grade" data-ar="المستوى" data-fr="Niveau">المستوى</label><select id="grade"><option value="all">كل المستويات</option><option value="1">السنة الأولى</option><option value="2">السنة الثانية</option><option value="3">السنة الثالثة</option><option value="4">السنة الرابعة</option><option value="5">السنة الخامسة</option><option value="6">السنة السادسة</option></select></div>
+      <div class="field"><label for="subject" data-ar="المادة" data-fr="Matière">المادة</label><select id="subject"><option value="all">كل المواد</option><option value="math">الرياضيات</option><option value="arabic">العربية</option><option value="french">الفرنسية</option><option value="science">الإيقاظ العلمي</option></select></div>
+      <div class="field"><label for="type" data-ar="نوع المورد" data-fr="Type de ressource">نوع المورد</label><select id="type"><option value="all">الكل</option><option value="lesson">درس</option><option value="exercise">تمرين</option><option value="test">اختبار</option><option value="download">ملف للتحميل</option></select></div>
+    </div>
+    <div class="grid" id="resources">
+      <article class="card resource-card" data-grade="6" data-subject="math" data-type="exercise"><div class="emoji">➗</div><span class="pill">رياضيات · السنة السادسة</span><h3 data-ar="العمليات على الأعداد" data-fr="Opérations sur les nombres">العمليات على الأعداد</h3><p data-ar="تمارين تدريبية مع التثبت من الإجابة." data-fr="Exercices d'entraînement avec vérification des réponses.">تمارين تدريبية مع التثبت من الإجابة.</p><button onclick="showQuiz()" data-ar="جرّب تمرينًا" data-fr="Essayer un exercice">جرّب تمرينًا</button></article>
+      <article class="card resource-card" data-grade="2" data-subject="arabic" data-type="lesson"><div class="emoji">📖</div><span class="pill">عربية · السنة الثانية</span><h3 data-ar="أقرأ وأفهم" data-fr="Lecture et compréhension">أقرأ وأفهم</h3><p data-ar="نموذج لبطاقة درس. أضف نصّك وملفّك الخاص." data-fr="Exemple de fiche de leçon. Ajoutez votre propre texte et fichier.">نموذج لبطاقة درس. أضف نصّك وملفّك الخاص.</p><button onclick="alert(currentLang==='ar'?'هذا مورد نموذجي. أضف محتوى الدرس الحقيقي قبل نشر الموقع.':'Ressource de démonstration. Ajoutez le vrai contenu avant publication.')" data-ar="فتح الدرس" data-fr="Ouvrir la leçon">فتح الدرس</button></article>
+      <article class="card resource-card" data-grade="5" data-subject="science" data-type="test"><div class="emoji">🔬</div><span class="pill">إيقاظ علمي · السنة الخامسة</span><h3 data-ar="اختبار قصير" data-fr="Petit test">اختبار قصير</h3><p data-ar="أسئلة تدريبية يمكن تطويرها إلى تقييم كامل." data-fr="Questions d'entraînement à développer en évaluation complète.">أسئلة تدريبية يمكن تطويرها إلى تقييم كامل.</p><button onclick="document.getElementById('quiz').classList.remove('hidden');document.getElementById('quiz').scrollIntoView({behavior:'smooth'})" data-ar="ابدأ الاختبار" data-fr="Commencer le test">ابدأ الاختبار</button></article>
+      <article class="card resource-card" data-grade="all" data-subject="french" data-type="download"><div class="emoji">📄</div><span class="pill">Français · Tous niveaux</span><h3 data-ar="بطاقة عمل قابلة للطباعة" data-fr="Fiche à imprimer">بطاقة عمل قابلة للطباعة</h3><p data-ar="ضع هنا رابط ملف Word أو PDF بعد رفعه إلى الإنترنت." data-fr="Ajoutez ici le lien Word ou PDF après l'avoir mis en ligne.">ضع هنا رابط ملف Word أو PDF بعد رفعه إلى الإنترنت.</p><button onclick="alert(currentLang==='ar'?'لا يوجد ملف مرفق بعد. استبدل هذه البطاقة برابط ملفك.':'Aucun fichier joint. Remplacez cette carte par le lien de votre fichier.')" data-ar="مكان رابط التحميل" data-fr="Lien de téléchargement">مكان رابط التحميل</button></article>
+    </div>
+    <p id="noResults" class="notice hidden">لا توجد موارد مطابقة. جرّب اختيارًا آخر.</p>
+  </section>
+
+  <section id="quiz" class="quiz hidden">
+    <h2 data-ar="اختبار تجريبي" data-fr="Quiz de démonstration">اختبار تجريبي</h2>
+    <p data-ar="ما ناتج 25 + 17 ؟" data-fr="Combien font 25 + 17 ?">ما ناتج 25 + 17 ؟</p>
+    <label><input type="radio" name="answer" value="40"> 40</label>
+    <label><input type="radio" name="answer" value="42"> 42</label>
+    <label><input type="radio" name="answer" value="43"> 43</label>
+    <button class="primary" onclick="checkAnswer()" data-ar="تحقّق من الإجابة" data-fr="Vérifier la réponse">تحقّق من الإجابة</button>
+    <div class="result" id="quizResult" aria-live="polite"></div>
+  </section>
+
+  <div class="notice"><strong data-ar="ملاحظة للمعلّم:" data-fr="Note pour l'enseignant :">ملاحظة للمعلّم:</strong> <span data-ar="هذا إصدار أولي تجريبي. قبل نشره، أضف ملفاتك الحقيقية وتحقّق من مطابقة الدروس للبرنامج التونسي، ولا ترفع معلومات شخصية عن التلامذة." data-fr="Cette première version est une maquette. Avant publication, ajoutez vos vrais fichiers, vérifiez la conformité au programme tunisien et ne publiez pas de données personnelles d'élèves.">هذا إصدار أولي تجريبي. قبل نشره، أضف ملفاتك الحقيقية وتحقّق من مطابقة الدروس للبرنامج التونسي، ولا ترفع معلومات شخصية عن التلامذة.</span></div>
+</main>
+<footer><p><strong>مدرستي | Mon École</strong></p><p data-ar="موقع تعليمي تجريبي مجاني" data-fr="Maquette éducative gratuite">موقع تعليمي تجريبي مجاني</p><p>© 2026</p></footer>
+<script>
+let currentLang='ar';
+const gradeLabels={ar:['كل المستويات','السنة الأولى','السنة الثانية','السنة الثالثة','السنة الرابعة','السنة الخامسة','السنة السادسة'],fr:['Tous les niveaux','1re année','2e année','3e année','4e année','5e année','6e année']};
+const subjectLabels={ar:['كل المواد','الرياضيات','العربية','الفرنسية','الإيقاظ العلمي'],fr:['Toutes les matières','Mathématiques','Arabe','Français','Sciences']};
+const typeLabels={ar:['الكل','درس','تمرين','اختبار','ملف للتحميل'],fr:['Tous','Leçon','Exercice','Évaluation','Fichier à télécharger']};
+document.getElementById('langBtn').addEventListener('click',()=>{
+ currentLang=currentLang==='ar'?'fr':'ar'; document.documentElement.lang=currentLang; document.documentElement.dir=currentLang==='ar'?'rtl':'ltr';
+ document.querySelectorAll('[data-ar]').forEach(el=>{el.textContent=el.dataset[currentLang]||el.dataset.ar});
+ document.getElementById('langBtn').textContent=currentLang==='ar'?'Français':'العربية';
+ const g=document.getElementById('grade'),s=document.getElementById('subject'),t=document.getElementById('type');
+ [...g.options].forEach((o,i)=>o.textContent=currentLang==='ar'?gradeLabels.ar[i]:gradeLabels.fr[i]);
+ [...s.options].forEach((o,i)=>o.textContent=currentLang==='ar'?subjectLabels.ar[i]:subjectLabels.fr[i]);
+ [...t.options].forEach((o,i)=>o.textContent=currentLang==='ar'?typeLabels.ar[i]:typeLabels.fr[i]);
+});
+function filterCards(){const g=document.getElementById('grade').value,s=document.getElementById('subject').value,t=document.getElementById('type').value;let count=0;
+ document.querySelectorAll('.resource-card').forEach(c=>{const ok=(g==='all'||c.dataset.grade===g||c.dataset.grade==='all')&&(s==='all'||c.dataset.subject===s)&&(t==='all'||c.dataset.type===t);c.classList.toggle('hidden',!ok);if(ok)count++});
+ document.getElementById('noResults').classList.toggle('hidden',count>0);
+}
+['grade','subject','type'].forEach(id=>document.getElementById(id).addEventListener('change',filterCards));
+function showQuiz(){const q=document.getElementById('quiz');q.classList.remove('hidden');q.scrollIntoView({behavior:'smooth'})}
+function checkAnswer(){const a=document.querySelector('input[name="answer"]:checked');const r=document.getElementById('quizResult');if(!a){r.textContent=currentLang==='ar'?'اختار إجابة أولًا.':'Choisissez d’abord une réponse.';return}r.textContent=a.value==='42'?(currentLang==='ar'?'إجابة صحيحة، أحسنت!':'Bonne réponse, bravo !'):(currentLang==='ar'?'موش الإجابة الصحيحة. جرّب مرة أخرى.':'Ce n’est pas la bonne réponse. Réessayez.')}
+</script>
+</body></html>
